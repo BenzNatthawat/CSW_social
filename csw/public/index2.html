@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html ng-app="starter">
+
+<head>
+  <meta charset="utf-8">
+
+  <title></title>
+  <script src="/bower_components/angular/angular.js"></script>
+  <script src="/bower_components/angular-route/angular-route.js"></script>
+  <script src="/bower_components/angular-resource/angular-resource.js"></script>
+
+  <link href="/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="/bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="/bower_components/tether/dist/js/tether.min.js"></script>
+  <script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+</head>
+
+<body ng-controller="AppController">
+  <!-- <div class="">
+    <b> Result: </b>
+    <font color="red">{{result}} </font>
+  </div> -->
+  <div class="container"><br>
+  <center>
+    <h1>Facebook 2</h1>
+    <a href="/index1.html"><button type="button" class="btn btn-info"> << back</button></a>
+    <img style="height: 200px" src="src/w3.jpg">
+    <a href="/index.html"><button type="button" class="btn btn-info"> next >> </button></a>
+  </center>
+  <div class="row">
+    <h1>Comments</h1>
+    <table class="table table-striped">
+        <tr ng-repeat="social in socials track by $index" ng-if="!isEmpty(social)&&(social.page==2)">
+          <td>
+            <b>Name : </b>{{social.name}}
+            <br>
+            {{social.comment}}
+            <div style="text-align: right;"><b>Date : </b>{{social.day}}</div>
+              <button type="button" ng-click="get(social.id)" class="btn btn-info">Get</button> |
+              <button type="button" ng-click="edit(social.id)" class="btn btn-warning">edit</button> |
+              <button type="button" ng-click="delete(social.id)" class="btn btn-danger">delete</button>
+          </td>
+        </tr>
+    </table>
+    <div class="row">
+      
+      <div class="col-md-8">
+        <h2>New Comment</h2>
+        <table>
+          <div class="input-group">
+          <tr><td><label>Name: </label></td>
+            <td style="width: 100%"><input type="text" class="form-control" id="basic-url" ng-model="addProject.name" ng-init="addProject.name=''">
+          </td></tr>
+          </div>
+          <br><div class="input-group">
+          <tr><td><label for="basic-url">Comment: </label></td>
+          <td> <textarea rows="3" type="text" class="form-control" id="basic-url" ng-model="addProject.comment"></textarea></td></tr>
+          </div><input type="hidden" class="form-control" id="basic-url" ng-model="addProject.page" ng-init="addProject.page='2'">
+          <tr><td>
+            <div><br><button class="btn btn-primary" ng-click="add()">Add</button></div>
+          </td></tr>
+        </table>
+        <br>
+        <br>
+      </div>
+
+      <div class="col-md-8">
+        <h2>Edit Comment</h2>
+        <table>
+          <input type="hidden" id="id" ng-model="editProject.id">
+          <div class="input-group">
+          <tr><td><label for="basic-url">Name:</label></td>
+            <td style="width: 100%"> <input type="text" class="form-control" id="basic-url" ng-model="editProject.name" ng-init="addProject.name=''">
+          </td></tr>
+          </div>
+          <br><div class="input-group">
+          <tr><td><label for="basic-url">Comment:</label></td>
+          <td> <textarea rows="3" type="text" class="form-control" id="basic-url" ng-model="editProject.comment"></textarea></td></tr>
+          </div>
+          <tr ><td>
+            <div><br><button class="btn btn-primary" ng-click="update(editProject.id)">Update</button></div>
+          </td></tr>
+        </table>
+        <br>
+        <br>
+      </div>
+    
+    </div>
+  </div>
+  <script src="js/app.js"></script>
+
+</body>
+
+</html>
