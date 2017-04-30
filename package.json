@@ -1,0 +1,33 @@
+{
+  "name": "node-api",
+  "main": "server.js",
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "bootstrap": "^4.0.0-alpha.6",
+    "cookie-parser": "^1.4.3",
+    "ejs": "^2.5.6",
+    "express": "^4.15.2",
+    "express-session": "^1.15.1",
+    "json-rpc2": "^1.0.2",
+    "passport": "^0.3.2",
+    "passport-facebook": "^2.1.1"
+  },
+  "devDependencies": {
+    "angular": "^1.6.4"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "description": "Node.js - RESTful API - Angularjs  (array storage)",
+  "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ggolfko/restful-api-angularjs-nodejs.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ggolfko/restful-api-angularjs-nodejs/issues"
+  },
+  "homepage": "https://github.com/ggolfko/restful-api-angularjs-nodejs#readme"
+}
