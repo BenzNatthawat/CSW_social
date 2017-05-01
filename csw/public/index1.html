@@ -13,7 +13,63 @@
   <script src="/bower_components/jquery/dist/jquery.min.js"></script>
   <script src="/bower_components/tether/dist/js/tether.min.js"></script>
   <script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+  <style>
+  .modalDialog {
+    position: fixed;
+    font-family: Arial, Helvetica, sans-serif;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0,0,0,0.8);
+    z-index: 99999;
+    -webkit-transition: opacity 400ms ease-in;
+    -moz-transition: opacity 400ms ease-in;
+    transition: opacity 400ms ease-in;
+    display: none;
+    pointer-events: none;
+  }
 
+  .modalDialog:target {
+    display: block;
+    pointer-events: auto;
+  }
+
+  .modalDialog > div {
+    width: 600px;
+    position: relative;
+    margin: 10% auto;
+    padding: 5px 20px 13px 20px;
+    border-radius: 10px;
+    background: #fff;
+    background: -moz-linear-gradient(#fff, #999);
+    background: -webkit-linear-gradient(#fff, #999);
+    background: -o-linear-gradient(#fff, #999);
+  }
+
+  .close {
+    background: #606061;
+    color: #FFFFFF;
+    line-height: 25px;
+    position: absolute;
+    right: -12px;
+    text-align: center;
+    top: -10px;
+    width: 24px;
+    text-decoration: none;
+    font-weight: bold;
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 12px;
+    border-radius: 12px;
+    -moz-box-shadow: 1px 1px 3px #000;
+    -webkit-box-shadow: 1px 1px 3px #000;
+    box-shadow: 1px 1px 3px #000;
+  }
+  body{
+    background-image:url("/src/bg.JPG");
+  }
+  .close:hover { background: #00d9ff; }
+  </style>
 </head>
 
 <body ng-controller="AppController">
@@ -37,7 +93,15 @@
             <br>
             {{social.comment}}
             <div style="text-align: right;"><b>Date : </b>{{social.day}}</div>
-              <button type="button" ng-click="get(social.id)" class="btn btn-info">Get</button> |
+            <a href="#openModal"><button type="button" class="btn btn-info">Get</button></a> |
+              <div id="!#openModal" class="modalDialog">
+                <div>
+                  <a href="#close" title="Close" class="close">X</a><br>
+                          <b style="font-size: 30px">Name : </b><font style="font-size: 30px">{{social.name}}</font>
+                          <br><br>
+                          <p style="font-size: 20px">{{social.comment}}</p><br>
+                </div>
+              </div>
               <button type="button" ng-click="edit(social.id)" class="btn btn-warning">edit</button> |
               <button type="button" ng-click="delete(social.id)" class="btn btn-danger">delete</button>
           </td>
@@ -50,13 +114,13 @@
         <table>
           <div class="input-group">
           <tr><td><label>Name: </label></td>
-            <td style="width: 100%"><input type="text" class="form-control" id="basic-url" ng-model="addProject.name" ng-init="addProject.name=''">
+            <td style="width: 100%"><input type="text" class="form-control" id="basic-url" ng-model="addcomment.name" ng-init="addcomment.name=''">
           </td></tr>
           </div>
           <br><div class="input-group">
           <tr><td><label for="basic-url">Comment: </label></td>
-          <td> <textarea rows="3" type="text" class="form-control" id="basic-url" ng-model="addProject.comment"></textarea></td></tr>
-          </div><input type="hidden" class="form-control" id="basic-url" ng-model="addProject.page" ng-init="addProject.page='1'">
+          <td> <textarea rows="3" type="text" class="form-control" id="basic-url" ng-model="addcomment.comment"></textarea></td></tr>
+          </div><input type="hidden" class="form-control" id="basic-url" ng-model="addcomment.page" ng-init="addcomment.page='1'">
           <tr><td>
             <div><br><button class="btn btn-primary" ng-click="add()">Add</button></div>
           </td></tr>
@@ -68,18 +132,18 @@
       <div class="col-md-8">
         <h2>Edit Comment</h2>
         <table>
-          <input type="hidden" id="id" ng-model="editProject.id">
+          <input type="hidden" id="id" ng-model="editcomment.id">
           <div class="input-group">
           <tr><td><label for="basic-url">Name:</label></td>
-            <td style="width: 100%"> <input type="text" class="form-control" id="basic-url" ng-model="editProject.name" ng-init="addProject.name=''">
+            <td style="width: 100%"> <input type="text" class="form-control" id="basic-url" ng-model="editcomment.name" ng-init="addcomment.name=''">
           </td></tr>
           </div>
           <br><div class="input-group">
           <tr><td><label for="basic-url">Comment:</label></td>
-          <td> <textarea rows="3" type="text" class="form-control" id="basic-url" ng-model="editProject.comment"></textarea></td></tr>
+          <td> <textarea rows="3" type="text" class="form-control" id="basic-url" ng-model="editcomment.comment"></textarea></td></tr><input type="hidden" class="form-control" id="basic-url" ng-model="editcomment.page" ng-init="addcomment.page='1'">
           </div>
           <tr ><td>
-            <div><br><button class="btn btn-primary" ng-click="update(editProject.id)">Update</button></div>
+            <div><br><button class="btn btn-primary" ng-click="update(editcomment.id)">Update</button></div>
           </td></tr>
         </table>
         <br>
