@@ -123,7 +123,7 @@ router.route('/socials/:social_id')
 app.use('/api', router);
 
 //static directory
-app.use(express.static('public_html'))
+app.use(express.static('public'))
 
 // use the router and 401 anything falling through
 app.use("*", function(req, res) {
