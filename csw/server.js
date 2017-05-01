@@ -86,7 +86,7 @@ router.route('/socials')
     //social.save(bear);
     Comments.push(social);
     res.json({
-      message: 'Project created!'
+      message: 'comment created!'
     });
   });
 
@@ -123,7 +123,7 @@ router.route('/socials/:social_id')
 app.use('/api', router);
 
 //static directory
-app.use(express.static('public'))
+app.use(express.static('public_html'))
 
 // use the router and 401 anything falling through
 app.use("*", function(req, res) {
@@ -132,7 +132,7 @@ app.use("*", function(req, res) {
 
 // START THE SERVER
 // =============================================================================
-app.listen(80, function() {
+app.listen(50029, function() {
   console.log("Server is running")
 });
 
