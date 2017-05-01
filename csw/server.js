@@ -18,29 +18,29 @@ var Comments = [
   {
     "id": 0,
     "page":0,
-    "comment": "หล่อจัง",
-    "name": "5735512029",
+    "comment": "Windows vs Linux",
+    "name": "Benz => 5735512029",
     "day": "30/04/2017"
   },
   {
     "id": 1,
     "page":0,
-    "comment": "หล่อ อิอิ",
-    "name": "57355120670",
+    "comment": "Windoms ใช้งานง่าย Linux สำหรับผู้พัฒนา",
+    "name": "Game => 5735512060",
     "day": "29/04/2017"
   },
   {
     "id": 2,
     "page":1,
-    "comment": "หล่อจัง",
-    "name": "5735512060",
+    "comment": "Apple vs Android",
+    "name": "Non => 5735512067",
     "day": "30/04/2017"
   },
   {
     "id": 3,
     "page":1,
-    "comment": "หล่อ อิอิ",
-    "name": "5735512067",
+    "comment": "กากทั้ง Apple และ Android",
+    "name": "Nos => 5735512159",
     "day": "29/04/2017"
   }
 
