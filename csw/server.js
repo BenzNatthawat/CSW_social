@@ -133,6 +133,6 @@ app.use("*", function(req, res) {
 // START THE SERVER
 // =============================================================================
 app.listen(50029, function() {
-  console.log("Server is running")
+  console.log("Server is running  URL : http://localhost:50029/")
 });
 
